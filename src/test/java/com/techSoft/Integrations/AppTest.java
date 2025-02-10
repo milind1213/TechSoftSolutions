@@ -1,4 +1,4 @@
-package TechSoftSolutions.TechSoftSolutions;
+package com.techSoft.Integrations;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
