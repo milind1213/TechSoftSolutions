@@ -20,6 +20,21 @@
       <version>7.10.2</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>7.20.1</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-testng</artifactId>
+      <version>7.20.1</version>
+    </dependency>
+
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
@@ -83,8 +98,15 @@
 
     <dependency>
       <groupId>com.aventstack</groupId>
-      <artifactId>extentreports</artifactId>
-      <version>5.1.1</version>
+      <artifactId>chaintest-cucumber-jvm</artifactId>
+      <version>1.0.11</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
+    <dependency>
+      <groupId>org.freemarker</groupId>
+      <artifactId>freemarker</artifactId>
+      <version>2.3.34</version>
     </dependency>
 
 
@@ -205,11 +227,6 @@
   <build>
     <plugins>
       <plugin>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>3.3.1</version>
-      </plugin>
-
-      <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.13.0</version>
         <configuration>
@@ -224,7 +241,7 @@
         <version>3.3.0</version>
         <configuration>
           <suiteXmlFiles>
-            <suiteXmlFile>Resource\TestSuites\${fileName}</suiteXmlFile>
+            <suiteXmlFile>src/test/resources/SuitsXML/testng.xml</suiteXmlFile>
           </suiteXmlFiles>
           <!--<systemPropertyVariables>
                <browser>${Browser}</browser>
