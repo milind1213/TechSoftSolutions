@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Properties;
 
 public class GmailUtils {
-    // This code is designed for reading and processing emails from a Gmail account using the IMAP protocol.
     public static void fetchEmails(String username, String password, String emailFolder, String subject) throws Exception {
         Properties props = new Properties();
         props.setProperty("mail.store.protocol", "imap");

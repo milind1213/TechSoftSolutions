@@ -15,7 +15,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class FileUtil {
 
-    private static final ObjectMapper objectMapper = new ObjectMapper();
     public static String getProperty(String propFile, String key) {
         Properties prop = null;
         String propertiesPath = "./configDirectory/" + propFile + ".properties";
@@ -37,7 +36,6 @@ public class FileUtil {
             throw new RuntimeException("Failed to create report directory: " + dirPath, e);
         }
     }
-
 
     public static void deleteOldReports(Path dirPath) {
         try (DirectoryStream<Path> stream = Files.newDirectoryStream(dirPath, "Automation_Report_*.html")) {
@@ -139,15 +137,6 @@ public class FileUtil {
         if (sourceFile.exists()) {
             FileUtils.copyDirectory(sourceFile, new File((dir)));
             System.out.println("report backup is done !!!");
-        }
-    }
-
-    public static <T> T readJsonFromFile(String filePath, Class<T> valueType) {
-        try {
-            return objectMapper.readValue(new File(filePath), valueType);
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException("Failed to read JSON file: " + filePath, e);
         }
     }
 

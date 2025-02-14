@@ -1,6 +1,7 @@
 package com.techSoft.testRunners;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.DataProvider;
 import java.awt.*;
 import java.io.File;
@@ -21,12 +22,13 @@ public class TestRunner extends AbstractTestNGCucumberTests
 {
     @Override
     @DataProvider(parallel = true)
-    public Object[][] scenarios() {
+    public Object[][] scenarios()
+    {
         return super.scenarios();
     }
 
 
-    @org.testng.annotations.AfterClass
+    @AfterClass
     public void launchReport()
     {
         try {
