@@ -18,7 +18,7 @@ public class FileUtil {
     private static final ObjectMapper objectMapper = new ObjectMapper();
     public static String getProperty(String propFile, String key) {
         Properties prop = null;
-        String propertiesPath = "./PropDirectory/" + propFile + ".properties";
+        String propertiesPath = "./configDirectory/" + propFile + ".properties";
         prop = new Properties();
         try {
             prop.load(new FileInputStream(propertiesPath));
