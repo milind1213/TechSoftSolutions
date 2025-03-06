@@ -19,6 +19,7 @@ public class CommonConstants {
     public static final String CURRENT_DIRECTORY = System.getProperty("user.dir");
     public static final String COMMON = "common";
     public static final String TECHSOFT = "techSoft";
+    public static final String APP = "application";
     public static final String GMAIL_USERNAME = "common.username";
     public static final String GMAIL_PASSWORD = "common.password";
     public static final String GMAIL_TO ="common.to";
@@ -28,10 +29,18 @@ public class CommonConstants {
     public static final String LOCAL ="local";
     public static final String REMOTE ="remote";
     public static final String PROD ="prod";
+    public static final String STAGE ="stage";
+    public static final String UAT ="uat";
     public static final String SLACK_CHANNEL = "common.slackChannel";
     public static final String SLACK_TOKEN = "common.slackToken";
     public static final String CURRENT_WORKING_DIRECTORY = System.getProperty("user.dir");
-    public static final String APP_PACKAGE = "techsoft.properties";
+    public static final String APP_PACKAGE = "app.base.pkg";
+    public static final String ANDROID_PLATFORM = "app.android.platform";
+    public static final String IOS_PLATFORM = "app.ios.platform";
+    public static final String PLATFORM_VERSION = "app.platform.version";
+    public static final String APK_VERSION = "app.android.version";
+    public static final String DEVICE_NAME = "app.device.name";
+    public static final String APP_PATH = "app.path";
 
 
     public static String generateRandomText(int length) {
@@ -42,6 +51,7 @@ public class CommonConstants {
         return  randomText + "@example.com";
 
     }
+
     public static int getRandomNumberInRange(int min, int max) {
         if (min >= max) {
             throw new IllegalArgumentException("max must be greater than min");

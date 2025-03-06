@@ -1,19 +1,22 @@
 package com.techSoft.testRunners;
+import io.cucumber.java.After;
+import io.cucumber.java.Scenario;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
-import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.DataProvider;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
 @CucumberOptions(
-        features = "src/test/resources/features/login.feature",
-        glue = {"com.techSoft.stepDefinitions"},
+        features = "src/test/resources/features/CommunityMembers.feature",
+        glue = {"com.techSoft.stepDefinitions","com.techSoft.integration" },
         plugin = {
                 "com.aventstack.chaintest.plugins.ChainTestCucumberListener:",
-                "pretty",
-                "html:reports/cucumber-report.html"
+                "pretty", "rerun:reports/Failed-Scenarios.txt",
+                "html:reports/cucumber-report.html",
+                "json:reports/cucumber.json"  // Ensure JSON report is generated
         },
         monochrome = true
 )
@@ -27,8 +30,7 @@ public class TestRunner extends AbstractTestNGCucumberTests
         return super.scenarios();
     }
 
-
-    @AfterClass
+    @AfterSuite
     public void launchReport()
     {
         try {
@@ -42,5 +44,4 @@ public class TestRunner extends AbstractTestNGCucumberTests
             System.out.println(e.getMessage());
         }
     }
-
 }
