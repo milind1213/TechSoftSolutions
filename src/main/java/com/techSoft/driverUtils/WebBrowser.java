@@ -10,17 +10,19 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.CapabilityType;
-import java.net.MalformedURLException;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
 public class WebBrowser {
-    protected WebDriver driver;
-    protected static ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
-    private static final List<WebDriver> webDriverList = Collections.synchronizedList(new ArrayList<>());
+    private static final ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
 
-    public WebDriver getBrowserDriver(String browserType, boolean isHeadless) throws MalformedURLException
+    public synchronized WebDriver getBrowserDriver(String browserType, boolean isHeadless)
     {
-        switch (browserType.toLowerCase()) {
+        WebDriver driver;
+        switch (browserType.toLowerCase())
+        {
             case "chrome":
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
@@ -45,21 +47,34 @@ public class WebBrowser {
             default:
                 throw new IllegalArgumentException("Invalid browser type: " + browserType);
         }
-        if (driver != null) {
-            webDriver.set(driver);
-            webDriverList.add(driver);
-        }
+        webDriver.set(driver);
         return driver;
     }
 
-    private void addCommonArguments(Object options, boolean isHeadless) {
+    public static WebDriver getDriver()
+    {
+        return webDriver.get();
+    }
+
+    public static void quitDriver()
+    {
+        if (webDriver.get() != null)
+        {
+            webDriver.get().quit();
+            webDriver.remove();
+        }
+    }
+
+    private void addCommonArguments(Object options, boolean isHeadless)
+    {
         List<String> commonArguments = Arrays.asList(
                 "--no-sandbox", "--disable-dev-shm-usage", "--disable-extensions",
                 "--dns-prefetch-disable", "--disable-gpu", "--start-maximized",
                 "--disable-web-security", "--no-proxy-server"
         );
 
-        if (options instanceof ChromeOptions chromeOptions) {
+        if (options instanceof ChromeOptions chromeOptions)
+        {
             chromeOptions.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
             chromeOptions.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
             if (isHeadless) {
@@ -74,7 +89,8 @@ public class WebBrowser {
             );
             chromeOptions.setExperimentalOption("prefs", prefs);
 
-        } else if (options instanceof FirefoxOptions firefoxOptions) {
+        } else if (options instanceof FirefoxOptions firefoxOptions)
+        {
             firefoxOptions.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
             if (isHeadless) {
                 firefoxOptions.addArguments("--headless", "--window-size=1920,1080");
@@ -82,7 +98,8 @@ public class WebBrowser {
             firefoxOptions.addArguments(commonArguments);
             firefoxOptions.setPageLoadStrategy(PageLoadStrategy.EAGER);
 
-        } else if (options instanceof EdgeOptions edgeOptions) {
+        } else if (options instanceof EdgeOptions edgeOptions)
+        {
             edgeOptions.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
             edgeOptions.setPageLoadStrategy(PageLoadStrategy.EAGER);
             edgeOptions.addArguments(commonArguments);

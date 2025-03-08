@@ -10,13 +10,12 @@ import java.io.File;
 import java.io.IOException;
 
 @CucumberOptions(
-        features = "src/test/resources/features/CommunityMembers.feature",
+        features = "src/test/resources/features",
         glue = {"com.techSoft.stepDefinitions","com.techSoft.integration" },
         plugin = {
                 "com.aventstack.chaintest.plugins.ChainTestCucumberListener:",
                 "pretty", "rerun:reports/Failed-Scenarios.txt",
-                "html:reports/cucumber-report.html",
-                "json:reports/cucumber.json"  // Ensure JSON report is generated
+                //"html:reports/cucumber-report.html",
         },
         monochrome = true
 )

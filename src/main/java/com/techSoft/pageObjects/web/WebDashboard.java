@@ -7,14 +7,14 @@ public class WebDashboard extends CommonSelenium {
 
     WebDriver driver;
     public final HomePage homepage;
-    public final Loginpage loginpage;
+    public final LoginPage loginpage;
 
     public WebDashboard(WebDriver driver)
     {
         super(driver);
         this.driver = driver;
         homepage = new HomePage(driver);
-        loginpage = new Loginpage(driver);
+        loginpage = new LoginPage(driver);
     }
 
     public HomePage getHomePage()
@@ -22,7 +22,7 @@ public class WebDashboard extends CommonSelenium {
         return homepage;
     }
 
-    public Loginpage getLoginPage()
+    public LoginPage getLoginPage()
     {
         return loginpage;
     }

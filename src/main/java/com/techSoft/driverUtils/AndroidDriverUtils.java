@@ -1,83 +1,42 @@
 package com.techSoft.driverUtils;
 
+import com.techSoft.CommonConstants;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
-import io.appium.java_client.service.local.AppiumDriverLocalService;
-import io.appium.java_client.service.local.AppiumServiceBuilder;
+import org.testng.annotations.Test;
 
-import java.io.File;
-import java.io.IOException;
 import java.net.MalformedURLException;
-import java.net.Socket;
-import java.net.URL;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 public class AndroidDriverUtils {
-
     private static final ThreadLocal<AndroidDriver> androidDriver = new ThreadLocal<>();
-    private AppiumDriverLocalService server;
+    public AndroidDriver getAndroidDriver() throws MalformedURLException, URISyntaxException
+    {
+        if (androidDriver.get() == null)
+        {
+            UiAutomator2Options options = new UiAutomator2Options();
+            options.setDeviceName(CommonConstants.DEVICE_NAME);
+            options.setPlatformName(CommonConstants.ANDROID);
+            options.setPlatformVersion("12");
+            options.setApp(CommonConstants.CURRENT_DIRECTORY +"/apps/ApiDemos-debug.apk");
+            options.setAutomationName(CommonConstants.AUTOMATION_NAME);
+            options.setNoReset(false);
+            options.setFullReset(false);
+            options.setCapability("autoGrantPermissions", true);
 
-    public AndroidDriver getAndroidDriver(String deviceName, String platformVersion, String appPath) throws MalformedURLException, MalformedURLException {
+            AndroidDriver driver = new AndroidDriver(new URI(CommonConstants.APPIUM_SERVER_URL).toURL(), options);
+            androidDriver.set(driver);
+        }
 
-        UiAutomator2Options options = new UiAutomator2Options();
-        options.setDeviceName(deviceName);
-        options.setPlatformName("Android");
-        options.setPlatformVersion(platformVersion);
-        options.setApp(appPath);
-        options.setAutomationName("UiAutomator2");
-        options.setNoReset(false);
-        options.setFullReset(false);
-        options.setCapability("autoGrantPermissions", true); // Automatically grant app permissions
-
-        AndroidDriver driver = new AndroidDriver(new URL("http://localhost:4723"), options);
-        androidDriver.set(driver);
-        return driver;
-    }
-
-    public static AndroidDriver getDriver() {
         return androidDriver.get();
     }
 
-    public void startServer() {
-        if (!isAppiumServerRunning(Integer.parseInt("portNum"))) {
-            server = new AppiumServiceBuilder().usingDriverExecutable(new File(("nodePath")))
-                    .withAppiumJS(new File(("mainJs")))
-                    .withIPAddress(("ip"))
-                    .usingPort(Integer.parseInt(("portNum"))).build();
-            server.start();
-            System.out.println("***** Appium server started ******");
-        } else {
-            System.out.println("***** Appium server is already running ******");
-        }
-    }
-
-    public void stopServer()
+    // Get current AndroidDriver instance
+    public AndroidDriver getAndroidDriverInstance()
     {
-        if (server != null && server.isRunning()) {
-            server.stop();
-            System.out.println("***** Appium server Stopped ******");
-        }
+        return androidDriver.get();
     }
-
-    private boolean isAppiumServerRunning(int port) {
-        try (Socket socket = new Socket("127.0.0.1", port)) {
-            return true;
-        } catch (IOException e) {
-            return false;
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

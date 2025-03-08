@@ -59,7 +59,7 @@ public class IOSDeviceManager {
             clearAppCmd = "ideviceinstaller -u " + deviceID + " --uninstall " + System.getProperty(CommonConstants.APP_PACKAGE);
             cmd.runCommand(clearAppCmd);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 }
