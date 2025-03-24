@@ -1,3 +1,4 @@
+@sanity
 Feature: Verifying Community Members
 
   Background:

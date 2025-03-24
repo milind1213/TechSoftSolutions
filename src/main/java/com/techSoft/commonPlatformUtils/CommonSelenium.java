@@ -57,7 +57,7 @@ public class CommonSelenium {
             element.sendKeys(text);
             waitFor(1);
         } catch (Exception e) {
-            e.getMessage();
+            System.err.println(e.getMessage());
             Assert.fail("Failed to send keys to element [" + locator + "]");
         }
     }
@@ -847,7 +847,7 @@ public class CommonSelenium {
         }
     }
 
-    public void scrollUpto(WebElement e) {
+    public void scrollUpTo(WebElement e) {
         try {
             JavascriptExecutor js = (JavascriptExecutor) driver;
             js.executeScript("arguments[0].scrollIntoView();", e);

@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 
 public class LoginPage extends CommonSelenium {
     protected WebDriver driver;
-
     public LoginPage(WebDriver driver) {
         super(driver);
         this.driver = driver;

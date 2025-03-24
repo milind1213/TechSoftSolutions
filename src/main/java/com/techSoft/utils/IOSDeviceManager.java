@@ -7,7 +7,8 @@ public class IOSDeviceManager {
     private final CommandLineUtility cmd = new CommandLineUtility();
     private final Map<Integer, String> deviceId = new HashMap<>();
 
-    public Map<Integer, String> getConnectedDevice() throws Exception {
+    public Map<Integer, String> getConnectedDevice() throws Exception
+    {
         String output = cmd.runCommand("instruments -s devices"); // Get list of connected devices
         String[] outputStrings = output.split("\n");
         if (outputStrings.length == 1) {
@@ -44,7 +45,8 @@ public class IOSDeviceManager {
         return iosVersion;
     }
 
-    public void unlockDevice(String deviceId) {
+    public void unlockDevice(String deviceId)
+    {
         try {
             if (deviceId.contains("simulator")) return; // No need to unlock simulator
             cmd.runCommand("ideviceunlock " + deviceId); // Unlock the device
@@ -53,7 +55,8 @@ public class IOSDeviceManager {
         }
     }
 
-    public void clearData(String deviceID) {
+    public void clearData(String deviceID)
+    {
         String clearAppCmd;
         try {
             clearAppCmd = "ideviceinstaller -u " + deviceID + " --uninstall " + System.getProperty(CommonConstants.APP_PACKAGE);

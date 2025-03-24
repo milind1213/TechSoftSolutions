@@ -1,3 +1,4 @@
+@regression
 Feature: API Demos App Navigation
 
   Scenario: Verify Main Screen Navigation

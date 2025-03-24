@@ -15,8 +15,8 @@ import java.io.IOException;
         plugin = {
                 "com.aventstack.chaintest.plugins.ChainTestCucumberListener:",
                 "pretty", "rerun:reports/Failed-Scenarios.txt",
-                //"html:reports/cucumber-report.html",
         },
+        tags = "@sanity",
         monochrome = true
 )
 
@@ -30,8 +30,7 @@ public class TestRunner extends AbstractTestNGCucumberTests
     }
 
     @AfterSuite
-    public void launchReport()
-    {
+    public void launchReport() {
         try {
             File reportFile = new File("reports/chaintest-report.html");
             if (reportFile.exists()) {
