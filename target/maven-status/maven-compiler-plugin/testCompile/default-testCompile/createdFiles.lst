@@ -1,0 +1,10 @@
+com\techSoft\integration\SlackIntegration.class
+com\techSoft\testRunners\TestRunner.class
+com\techSoft\stepDefinitions\steps_android\AndroidMobileWebSteps.class
+com\techSoft\stepDefinitions\steps_apis\GroceryApisSteps.class
+com\techSoft\integration\BaseTest.class
+com\techSoft\testRunners\CodeCheck.class
+com\techSoft\integration\EmailIntegration$2.class
+com\techSoft\stepDefinitions\steps_web\CommunityMembersSteps.class
+com\techSoft\integration\EmailIntegration.class
+com\techSoft\integration\EmailIntegration$1.class

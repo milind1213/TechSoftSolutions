@@ -1,3 +1,4 @@
+@mg
 Feature: Verifying MobileWeb Login Functionality
 
   Scenario Outline: Verify user login with multiple credentials

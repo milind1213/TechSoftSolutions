@@ -1,6 +1,4 @@
 package com.techSoft.testRunners;
-import io.cucumber.java.After;
-import io.cucumber.java.Scenario;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.AfterSuite;
@@ -16,7 +14,7 @@ import java.io.IOException;
                 "com.aventstack.chaintest.plugins.ChainTestCucumberListener:",
                 "pretty", "rerun:reports/Failed-Scenarios.txt",
         },
-        tags = "@sanity",
+        tags = "@web",
         monochrome = true
 )
 

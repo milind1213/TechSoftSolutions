@@ -103,12 +103,12 @@
                     <div class="method-list-content failed suite-Cucumber_Suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Cucumber_Suite" title="com.techSoft.testRunners.TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Verify user login with multiple credentials&quot;, &quot;Verifying MobileWeb Login Functionality&quot;)">runScenario("Verify user login with multiple credentials", "Verifying MobileWeb Login Functionality")</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Cucumber_Suite" title="com.techSoft.testRunners.TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Verify users can filter and sort community members with different sorting options&quot;, &quot;Verifying Comm...)">runScenario("Verify users can filter and sort community members with different sorting options", "Verifying Comm...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Cucumber_Suite" title="com.techSoft.testRunners.TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Verify user login with multiple credentials&quot;, &quot;Verifying MobileWeb Login Functionality&quot;)">runScenario("Verify user login with multiple credentials", "Verifying MobileWeb Login Functionality")</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Cucumber_Suite" title="com.techSoft.testRunners.TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Verify users can filter and sort community members with different sorting options&quot;, &quot;Verifying Comm...)">runScenario("Verify users can filter and sort community members with different sorting options", "Verifying Comm...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Cucumber_Suite -->
@@ -131,42 +131,24 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;Verify user login with multiple credentials&quot;, &quot;Verifying MobileWeb Login Functionality&quot;)">
-                  </a> <!-- runScenario("Verify user login with multiple credentials", "Verifying MobileWeb Login Functionality") -->
+                  <a name="runScenario(&quot;Verify users can filter and sort community members with different sorting options&quot;, &quot;Verifying Comm...)">
+                  </a> <!-- runScenario("Verify users can filter and sort community members with different sorting options", "Verifying Comm...) -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("Verify user login with multiple credentials","Verifying MobileWeb Login Functionality")</span>
-                  <div class="stack-trace">io.cucumber.testng.UndefinedStepException: The step &apos;I am on the login page&apos; and 4 other step(s) are undefined.
-You can implement these steps using the snippet(s) below:
-
-@Given(&quot;I am on the login page&quot;)
-public void i_am_on_the_login_page() {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-@When(&quot;I select the {string} login option&quot;)
-public void i_select_the_login_option(String string) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-@When(&quot;I enter email {string} and password {string}&quot;)
-public void i_enter_email_and_password(String string, String string2) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-@When(&quot;I click the login button&quot;)
-public void i_click_the_login_button() {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-@Then(&quot;I should see the {string}&quot;)
-public void i_should_see_the(String string) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-
-	at io.cucumber.core.runtime.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:69)
-	at io.cucumber.testng.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:23)
-	at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:136)
+                  <span class="parameters">("Verify users can filter and sort community members with different sorting options","Verifying Community Members")</span>
+                  <div class="stack-trace">io.cucumber.core.exception.CucumberException: Failed to instantiate class com.techSoft.stepDefinitions.steps_web.CommunityMembersSteps
+	at io.cucumber.core.backend.DefaultObjectFactory.cacheNewInstance(DefaultObjectFactory.java:67)
+	at io.cucumber.core.backend.DefaultObjectFactory.getInstance(DefaultObjectFactory.java:45)
+	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
+	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)
+	at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)
+	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:62)
+	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
+	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:81)
+	at io.cucumber.core.runner.TestStep.run(TestStep.java:53)
+	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)
+	at io.cucumber.core.runner.TestCase.run(TestCase.java:84)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:75)
+	at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:135)
 	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136)
 	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
 	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136)
@@ -175,7 +157,16 @@ public void i_should_see_the(String string) {
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:840)
-... Removed 9 stack frames
+	at io.cucumber.core.backend.DefaultObjectFactory.cacheNewInstance(DefaultObjectFactory.java:53)
+	... 29 more
+Caused by: java.lang.NoClassDefFoundError: org/openqa/selenium/mobile/NetworkConnection
+	at com.techSoft.driverUtils.WebBrowser.getBrowserDriver(WebBrowser.java:30)
+	at com.techSoft.integration.BaseTest.initializeDriver(BaseTest.java:35)
+	at com.techSoft.stepDefinitions.steps_web.CommunityMembersSteps.&lt;init&gt;(CommunityMembersSteps.java:21)
+	... 35 more
+Caused by: java.lang.ClassNotFoundException: org.openqa.selenium.mobile.NetworkConnection
+	... 38 more
+... Removed 15 stack frames
 </div> <!-- stack-trace -->
                   <em>
 (Runs Cucumber Scenarios)                  </em>
@@ -183,42 +174,24 @@ public void i_should_see_the(String string) {
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;Verify user login with multiple credentials&quot;, &quot;Verifying MobileWeb Login Functionality&quot;)">
-                  </a> <!-- runScenario("Verify user login with multiple credentials", "Verifying MobileWeb Login Functionality") -->
+                  <a name="runScenario(&quot;Verify users can filter and sort community members with different sorting options&quot;, &quot;Verifying Comm...)">
+                  </a> <!-- runScenario("Verify users can filter and sort community members with different sorting options", "Verifying Comm...) -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("Verify user login with multiple credentials","Verifying MobileWeb Login Functionality")</span>
-                  <div class="stack-trace">io.cucumber.testng.UndefinedStepException: The step &apos;I am on the login page&apos; and 4 other step(s) are undefined.
-You can implement these steps using the snippet(s) below:
-
-@Given(&quot;I am on the login page&quot;)
-public void i_am_on_the_login_page() {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-@When(&quot;I select the {string} login option&quot;)
-public void i_select_the_login_option(String string) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-@When(&quot;I enter email {string} and password {string}&quot;)
-public void i_enter_email_and_password(String string, String string2) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-@When(&quot;I click the login button&quot;)
-public void i_click_the_login_button() {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-@Then(&quot;I should see the {string}&quot;)
-public void i_should_see_the(String string) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-
-	at io.cucumber.core.runtime.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:69)
-	at io.cucumber.testng.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:23)
-	at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:136)
+                  <span class="parameters">("Verify users can filter and sort community members with different sorting options","Verifying Community Members")</span>
+                  <div class="stack-trace">io.cucumber.core.exception.CucumberException: Failed to instantiate class com.techSoft.stepDefinitions.steps_web.CommunityMembersSteps
+	at io.cucumber.core.backend.DefaultObjectFactory.cacheNewInstance(DefaultObjectFactory.java:67)
+	at io.cucumber.core.backend.DefaultObjectFactory.getInstance(DefaultObjectFactory.java:45)
+	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
+	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)
+	at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)
+	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:62)
+	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
+	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:81)
+	at io.cucumber.core.runner.TestStep.run(TestStep.java:53)
+	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)
+	at io.cucumber.core.runner.TestCase.run(TestCase.java:84)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:75)
+	at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:135)
 	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136)
 	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
 	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136)
@@ -227,7 +200,37 @@ public void i_should_see_the(String string) {
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:840)
-... Removed 9 stack frames
+	at io.cucumber.core.backend.DefaultObjectFactory.cacheNewInstance(DefaultObjectFactory.java:53)
+	... 29 more
+Caused by: java.lang.NoClassDefFoundError: org/openqa/selenium/mobile/NetworkConnection
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1017)
+	at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:150)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:862)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClassOnClassPathOrNull(BuiltinClassLoader.java:760)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:681)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:639)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1017)
+	at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:150)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:862)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClassOnClassPathOrNull(BuiltinClassLoader.java:760)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:681)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:639)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	at com.techSoft.driverUtils.WebBrowser.getBrowserDriver(WebBrowser.java:30)
+	at com.techSoft.integration.BaseTest.initializeDriver(BaseTest.java:35)
+	at com.techSoft.stepDefinitions.steps_web.CommunityMembersSteps.&lt;init&gt;(CommunityMembersSteps.java:21)
+	... 35 more
+Caused by: java.lang.ClassNotFoundException: org.openqa.selenium.mobile.NetworkConnection
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	... 56 more
+... Removed 15 stack frames
 </div> <!-- stack-trace -->
                   <em>
 (Runs Cucumber Scenarios)                  </em>
@@ -244,8 +247,8 @@ public void i_should_see_the(String string) {
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite thread-count=&quot;2&quot; parallel=&quot;tests&quot; name=&quot;Cucumber Suite&quot; guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot;&gt;
-  &lt;test thread-count=&quot;2&quot; parallel=&quot;tests&quot; name=&quot;Cucumber Tests&quot; verbose=&quot;0&quot;&gt;
+&lt;suite thread-count=&quot;4&quot; parallel=&quot;methods&quot; name=&quot;Cucumber Suite&quot; guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot;&gt;
+  &lt;test thread-count=&quot;4&quot; parallel=&quot;methods&quot; name=&quot;Cucumber Tests&quot; verbose=&quot;0&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;com.techSoft.testRunners.TestRunner&quot;/&gt;
     &lt;/classes&gt;
@@ -299,16 +302,16 @@ data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'com.techSoft.testRunners.TestRunner')
-data.setCell(0, 3, 83);
+data.setCell(0, 3, 545);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'runScenario')
 data.setCell(1, 2, 'com.techSoft.testRunners.TestRunner')
-data.setCell(1, 3, 83);
+data.setCell(1, 3, 544);
 window.suiteTableData['Cucumber_Suite']= { tableData: data, tableDiv: 'times-div-Cucumber_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 10 seconds</span>
+              <span class="suite-total-time">Total running time: 1 seconds</span>
               <div id="times-div-Cucumber_Suite">
               </div> <!-- times-div-Cucumber_Suite -->
             </div> <!-- times-div -->
@@ -336,28 +339,28 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">com.techSoft.testRunners.TestRunner</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setUpClass(org.testng.TestRunner@738dc9b)</span>
+                <span class="method-name">setUpClass(org.testng.TestRunner@5778826f)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">runScenario("Verify user login with multiple credentials", "Verifying MobileWeb Login Functionality")</span>
-                <span class="method-start">9986 ms</span>
+                <span class="method-name">runScenario("Verify users can filter and sort community members with different sorting options", "Verifying Comm...)</span>
+                <span class="method-start">9092 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">runScenario("Verify user login with multiple credentials", "Verifying MobileWeb Login Functionality")</span>
-                <span class="method-start">9986 ms</span>
+                <span class="method-name">runScenario("Verify users can filter and sort community members with different sorting options", "Verifying Comm...)</span>
+                <span class="method-start">9093 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">10079 ms</span>
+                <span class="method-start">9645 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-suite after">
                 <span class="method-name">launchReport</span>
-                <span class="method-start">10219 ms</span>
+                <span class="method-start">9774 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

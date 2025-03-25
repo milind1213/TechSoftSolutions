@@ -12,6 +12,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
+import java.net.URI;
 import java.nio.file.Paths;
 import java.time.Duration;
 import static com.techSoft.utils.FileUtil.getProperty;
@@ -141,11 +142,22 @@ public class BaseTest {
 
 
     @Before
-    public void beforeScenario(Scenario scenario)
-    {
+    public void beforeScenario(Scenario scenario) {
         String scenarioName = scenario.getName().toLowerCase();
-        String featureFilePath = scenario.getUri().toString();
-        String featureFileName = Paths.get(featureFilePath).getFileName().toString();
+        String featureFileUri = scenario.getUri().toString();  // e.g., "file:///C:/path/to/feature"
+        String featureFileName;
+
+        try {
+            URI uri = new URI(featureFileUri);
+            String filePath = uri.getPath();  // e.g., "/C:/path/to/feature"
+            if (filePath.startsWith("/")) {
+                filePath = filePath.substring(1);  // Remove leading "/" on Windows: "C:/path/to/feature"
+            }
+            featureFileName = Paths.get(filePath).getFileName().toString();
+        } catch (Exception e) {
+            featureFileName = "UnknownFeatureFile";  // Fallback in case of error
+            System.err.println("Failed to parse feature file path: " + e.getMessage());
+        }
 
         System.out.println("====== Executing the Scenarios from Feature: [" + featureFileName + "] ======");
         System.out.println("Setting up for Scenario: [" + scenarioName + "]");
