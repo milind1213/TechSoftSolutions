@@ -319,7 +319,7 @@
                 <version>3.3.0</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/SuitsXML/testng.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/suitsXML/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <!-- Uncomment if needed -->
                     <!-- <systemPropertyVariables>
