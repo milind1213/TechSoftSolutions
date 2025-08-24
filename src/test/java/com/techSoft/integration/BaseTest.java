@@ -11,10 +11,12 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-
 import java.net.URI;
 import java.nio.file.Paths;
 import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import static com.techSoft.utils.FileUtil.getProperty;
 
 public class BaseTest {
@@ -22,68 +24,61 @@ public class BaseTest {
     private final MobileWebBrowser mobileWeb = new MobileWebBrowser();
     private static AndroidDriverUtils androidUtils;
 
-    public WebDriver getWebDriver()
-    {
+    public WebDriver getWebDriver() {
         WebDriver driver = null;
         String env = getProperty(CommonConstants.TECHSOFT, CommonConstants.EXECUTION_ENV);
 
-        if (env.equals(CommonConstants.LOCAL)){
+        if (env.equals(CommonConstants.LOCAL)) {
             driver = browser.getBrowserDriver(
                     getProperty(CommonConstants.TECHSOFT, CommonConstants.BROWSER),
                     Boolean.parseBoolean(getProperty(CommonConstants.TECHSOFT, CommonConstants.RUNMODE_IS_HEADLESS))
             );
 
-         if (driver != null) {
+            if (driver != null) {
                 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
                 driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
                 driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(120));
                 driver.manage().window().maximize();
-         }
-          System.out.println("Launching the Local " +
+            }
+            System.out.println("Launching the Local " +
                     (Boolean.parseBoolean(getProperty(CommonConstants.TECHSOFT, CommonConstants.RUNMODE_IS_HEADLESS)) ? "Headless " : "") +
                     getProperty(CommonConstants.TECHSOFT, CommonConstants.BROWSER) + " browser");
-        } else
-        {
+        } else {
             System.out.println("Remote execution not implemented.");
         }
         return driver;
-     }
+    }
 
 
-    public static WebDriver getDriver()
-     {
+    public static WebDriver getDriver() {
         return WebBrowser.getDriver();
-     }
+    }
 
-    public void getAndroidDriver(){
+    public void getAndroidDriver() {
         AndroidDriver androidDriver = null;
         androidUtils = new AndroidDriverUtils();
-        try
-        {
-           androidDriver =  androidUtils.getAndroidDriver();
-           if (androidDriver != null && androidDriver.getSessionId() != null)
-           {
+        try {
+            androidDriver = androidUtils.getAndroidDriver();
+            if (androidDriver != null && androidDriver.getSessionId() != null) {
                 System.out.println("======== App launched successfully! ========");
-           } else {
+            } else {
                 System.out.println("App launch failed!");
-           }
+            }
 
         } catch (Exception e) {
             throw new RuntimeException("Failed to start Appium Server or Initialize Driver", e);
         }
     }
 
-     public static AndroidDriver getAndroidDriverInstance() {
-        return androidUtils != null? androidUtils.getAndroidDriverInstance() : null;
-     }
+    public static AndroidDriver getAndroidDriverInstance() {
+        return androidUtils != null ? androidUtils.getAndroidDriverInstance() : null;
+    }
 
-    public WebDriver getSeleniumMobileWebDriver()
-    {
+    public WebDriver getSeleniumMobileWebDriver() {
         WebDriver driver = null;
         String env = getProperty(CommonConstants.TECHSOFT, CommonConstants.EXECUTION_ENV);
 
-        if (env.equals(CommonConstants.LOCAL))
-        {
+        if (env.equals(CommonConstants.LOCAL)) {
             driver = mobileWeb.getSeleniumMobileWebDriverInstance("iPhone 14 Pro Max",
                     Boolean.parseBoolean(getProperty(CommonConstants.TECHSOFT, CommonConstants.RUNMODE_IS_HEADLESS))
             );
@@ -97,33 +92,30 @@ public class BaseTest {
             System.out.println("Launching the MobileWeb " +
                     (Boolean.parseBoolean(getProperty(CommonConstants.TECHSOFT, CommonConstants.RUNMODE_IS_HEADLESS)) ? "Headless " : "") +
                     getProperty(CommonConstants.TECHSOFT, CommonConstants.BROWSER) + " browser");
-        }
-        else
-        {
+        } else {
             System.out.println("Remote execution not implemented.");
         }
         return driver;
     }
 
 
-    public static WebDriver getMBDriver()
-    {
+    public static WebDriver getMBDriver() {
         return MobileWebBrowser.getDriver();
     }
 
     @BeforeAll
-    public static void globalSetup()
-    {
-        if (getProperty(CommonConstants.APP, CommonConstants.MOBILE_PLATFORM).equalsIgnoreCase("Android"))
-         {
-             AppiumServerUtils.startServer();
-         } else if ( getProperty(CommonConstants.APP, CommonConstants.MOBILE_PLATFORM).equalsIgnoreCase("iOS"))
-         {
-             AppiumServerUtils.startServer();
-         }
-        System.out.println("====== Test Execution Started ======");
-    }
+    public static void globalSetup() {
+        if (getProperty(CommonConstants.APP, CommonConstants.MOBILE_PLATFORM).equalsIgnoreCase("Android")) {
+            AppiumServerUtils.startServer();
+        } else if (getProperty(CommonConstants.APP, CommonConstants.MOBILE_PLATFORM).equalsIgnoreCase("iOS")) {
+            AppiumServerUtils.startServer();
+        }
 
+        String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        System.out.println("\n======================================================================");
+        System.out.println("["+timestamp+"] ----- [Test Execution Started] -----");
+        System.out.println("=======================================================================\n");
+    }
     @AfterAll
     public static void globalTearDown()
     {
@@ -133,34 +125,34 @@ public class BaseTest {
             AppiumServerUtils.stopServer();
         }
 
-        System.out.println("====== Test Execution Completed ======");
+        System.out.println("=========== [Test Execution Completed] ===========");
 
        if ( CommonConstants.SEND_REPORT_TO_SLACK) {
             System.out.println("Sending the execution report to Slack Channel");
         }
     }
 
-
     @Before
     public void beforeScenario(Scenario scenario) {
         String scenarioName = scenario.getName().toLowerCase();
-        String featureFileUri = scenario.getUri().toString();  // e.g., "file:///C:/path/to/feature"
+        String featureFileUri = scenario.getUri().toString();
         String featureFileName;
-
         try {
             URI uri = new URI(featureFileUri);
-            String filePath = uri.getPath();  // e.g., "/C:/path/to/feature"
+            String filePath = uri.getPath();
             if (filePath.startsWith("/")) {
-                filePath = filePath.substring(1);  // Remove leading "/" on Windows: "C:/path/to/feature"
+                filePath = filePath.substring(1);
             }
             featureFileName = Paths.get(filePath).getFileName().toString();
         } catch (Exception e) {
-            featureFileName = "UnknownFeatureFile";  // Fallback in case of error
+            featureFileName = "UnknownFeatureFile";
             System.err.println("Failed to parse feature file path: " + e.getMessage());
         }
-
-        System.out.println("====== Executing the Scenarios from Feature: [" + featureFileName + "] ======");
-        System.out.println("Setting up for Scenario: [" + scenarioName + "]");
+        String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        System.out.println("\n======================================================================");
+        System.out.println("["+timestamp+"]  🚀 Setting Up Feature File: [" + featureFileName + "]");
+        System.out.println("["+timestamp+"]  🎯 Executing Scenario    : [" + scenarioName + "]");
+        System.out.println("=======================================================================\n");
     }
 
     @After
@@ -193,7 +185,6 @@ public class BaseTest {
         {
             System.out.println("No active driver found for screenshot capture.");
         }
-
     }
 
 }

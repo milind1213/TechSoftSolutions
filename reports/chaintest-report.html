@@ -19,9 +19,9 @@
         <span class="ms-3 fs-6">Automation Execution Report</span>
       </div>
       <div>
-        <span class="badge badge-outline text-lg"><i class="bi bi-hourglass me-1"></i> 43s</span>
-        <span class="badge badge-outline text-lg"><i class="bi bi-clock me-1 text-success"></i> 2025-03-25 08:19:48 AM</span>
-        <span class="badge badge-outline text-lg me-3"><i class="bi bi-clock me-1 text-danger"></i> 2025-03-25 08:20:32 AM</span>
+        <span class="badge badge-outline text-lg"><i class="bi bi-hourglass me-1"></i> 1m 47s</span>
+        <span class="badge badge-outline text-lg"><i class="bi bi-clock me-1 text-success"></i> 2025-08-24 09:24:03 AM</span>
+        <span class="badge badge-outline text-lg me-3"><i class="bi bi-clock me-1 text-danger"></i> 2025-08-24 09:25:51 AM</span>
           <button role="button" id="sys-info" class="btn btn-outline-primary smaller" title="View System Info">
             <i class="bi bi-pc-display-horizontal"></i></button>
         <button role="button" id="shortcuts" class="btn btn-outline-primary smaller" title="Shortcuts">
@@ -80,9 +80,9 @@
                   </div>
                 </div>
                 <div class="card-footer small">
-                  <span id="sp3">15</span> Passed,
+                  <span id="sp3">10</span> Passed,
                   <span id="sf3">1</span> Failed,
-                  <span id="ss3">2</span> Skipped
+                  <span id="ss3">7</span> Skipped
                 </div>
               </div>
             </div>
@@ -144,11 +144,11 @@
             <div class="col-4">
               <h6 class="mb-3 testname fs-6 failed">Feature: Verifying Community Members</h6>
               <div class="small">
-                <span class="badge badge-outline"><i class="bi bi-hourglass me-1"></i> 6ms</span>
+                <span class="badge badge-outline"><i class="bi bi-hourglass me-1"></i> 16ms</span>
                 <span class="badge text-bg-info"><i class="bi bi-clock me-1"></i>
-                  2025-03-25 08:20:32 AM</span>
+                  2025-08-24 09:25:51 AM</span>
                 <span class="badge text-bg-warning"><i class="bi bi-clock me-1"></i>
-                  2025-03-25 08:20:32 AM</span>
+                  2025-08-24 09:25:51 AM</span>
               </div>
                 <div class="my-2">
                     <span class="badge rounded-pill text-bg-secondary">@web</span>
@@ -234,33 +234,57 @@
           <span class="ms-2">Given the user is on the login page</span>
         </div>
         <div class="mt-1 pb-1">
-            <i class="bi bi-check-circle-fill text-success"></i>
+              <i class="bi bi-exclamation-octagon-fill text-danger"></i>
           <span class="ms-2">When the user logs in with valid credentials</span>
+            <pre class="py-2 mt-2">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//button[.='Sign In']"}
+  (Session info: chrome=139.0.7258.138)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.14'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [117501abc67de7faeff05c89db367ce0, findElement {using=xpath, value=//button[.='Sign In']}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 139.0.7258.138, chrome: {chromedriverVersion: 139.0.7258.138 (884e54ea8d4..., userDataDir: C:\Users\MILIND~1.GHO\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57603}, networkConnectionEnabled: false, pageLoadStrategy: eager, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57603/devtoo..., se:cdpVersion: 139.0.7258.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 117501abc67de7faeff05c89db367ce0
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
+	at com.techSoft.pageObjects.web.LoginPage.webLogin(LoginPage.java:30)
+	at com.techSoft.stepDefinitions.steps_web.CommunityMembersSteps.theUserLogsInWithValidCredentials(CommunityMembersSteps.java:30)
+	at ?.the user logs in with valid credentials(file:///C:/Users/milind.ghongade/IdeaProjects/TechSoftSolutions/src/test/resources/features/CommunityMembers.feature:6)
+</pre>
         </div>
         <div class="mt-1 pb-1">
-            <i class="bi bi-check-circle-fill text-success"></i>
+              <i class="bi bi-exclamation-octagon-fill text-info"></i>
           <span class="ms-2">Then the user should be redirected to the dashboard</span>
         </div>
         <div class="mt-1 pb-1">
-            <i class="bi bi-check-circle-fill text-success"></i>
+              <i class="bi bi-exclamation-octagon-fill text-info"></i>
           <span class="ms-2">When the user navigates to the "Connect" section</span>
         </div>
         <div class="mt-1 pb-1">
-            <i class="bi bi-check-circle-fill text-success"></i>
+              <i class="bi bi-exclamation-octagon-fill text-info"></i>
           <span class="ms-2">And the user selects "Community" as the connection type</span>
         </div>
         <div class="mt-1 pb-1">
-            <i class="bi bi-check-circle-fill text-success"></i>
+              <i class="bi bi-exclamation-octagon-fill text-info"></i>
           <span class="ms-2">And the user clicks on the sort button</span>
         </div>
         <div class="mt-1 pb-1">
-              <i class="bi bi-exclamation-octagon-fill text-danger"></i>
+              <i class="bi bi-exclamation-octagon-fill text-info"></i>
           <span class="ms-2">And the user selects "Newest members" sorting</span>
-            <pre class="py-2 mt-2">java.lang.AssertionError: Unsupported sorting type: Newest members
-	at org.testng.Assert.fail(Assert.java:111)
-	at com.techSoft.stepDefinitions.steps_web.CommunityMembersSteps.theUserSelectsSorting(CommunityMembersSteps.java:72)
-	at ✽.the user selects "Newest members" sorting(file:///C:/Users/milind.ghongade/IdeaProjects/TechSoftSolutions/src/test/resources/features/CommunityMembers.feature:13)
-</pre>
         </div>
         <div class="mt-1 pb-1">
               <i class="bi bi-exclamation-octagon-fill text-info"></i>
@@ -273,7 +297,7 @@
   </div>
                       <div class="row mt-3">
                           <div class="embed col-2 mb-1">
-                            <img src="resources/bb6045a1-09ad-445f-8a62-84da4c947c9a.png" />
+                            <img src="resources/7a0771b4-0a7b-4ddc-935b-70ae86375f8c.png" />
                           </div>
                       </div>
                   </div>
@@ -298,11 +322,11 @@
         { result: 'Failed', count: 1, bg: 'rgb(233,80,113)' },
         { result: 'Skipped', count: 0, bg: 'rgb(221, 91, 96)' }
       ];
-      const stats3Annotation = {'total': 18, 'passed': 15};
+      const stats3Annotation = {'total': 18, 'passed': 10};
       const stats3 = [
-        { result: 'Passed', count: 15, bg: 'rgb(140, 197, 83)' },
+        { result: 'Passed', count: 10, bg: 'rgb(140, 197, 83)' },
         { result: 'Failed', count: 1, bg: 'rgb(233,80,113)' },
-        { result: 'Skipped', count: 2, bg: 'rgb(221, 91, 96)' }
+        { result: 'Skipped', count: 7, bg: 'rgb(221, 91, 96)' }
       ];
      
   </script>
@@ -382,12 +406,12 @@
                   <td>Toggle skipped tests</td>
                 </tr>
                 <tr>
-                  <td>esc</td>
-                  <td>Reset all filters</td>
-                </tr>
-                <tr>
                   <td>L</td>
                   <td>Toggle theme (light/dark)</td>
+                </tr>
+                <tr>
+                  <td>esc</td>
+                  <td>Reset all filters</td>
                 </tr>
                 <tr>
                   <td>f</td>

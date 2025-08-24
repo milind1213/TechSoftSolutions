@@ -1,10 +1,13 @@
 C:\Users\milind.ghongade\IdeaProjects\TechSoftSolutions\src\test\java\com\techSoft\integration\BaseTest.java
 C:\Users\milind.ghongade\IdeaProjects\TechSoftSolutions\src\test\java\com\techSoft\integration\EmailIntegration.java
 C:\Users\milind.ghongade\IdeaProjects\TechSoftSolutions\src\test\java\com\techSoft\integration\SlackIntegration.java
+C:\Users\milind.ghongade\IdeaProjects\TechSoftSolutions\src\test\java\com\techSoft\stepDefinitions\CodeTest.java
 C:\Users\milind.ghongade\IdeaProjects\TechSoftSolutions\src\test\java\com\techSoft\stepDefinitions\steps_android\AndroidApiDemoSettings.java
 C:\Users\milind.ghongade\IdeaProjects\TechSoftSolutions\src\test\java\com\techSoft\stepDefinitions\steps_android\AndroidMobileWebSteps.java
+C:\Users\milind.ghongade\IdeaProjects\TechSoftSolutions\src\test\java\com\techSoft\stepDefinitions\steps_apis\ApiMocs.java
 C:\Users\milind.ghongade\IdeaProjects\TechSoftSolutions\src\test\java\com\techSoft\stepDefinitions\steps_apis\GroceryApisSteps.java
 C:\Users\milind.ghongade\IdeaProjects\TechSoftSolutions\src\test\java\com\techSoft\stepDefinitions\steps_mobileWeb\PGLoginSteps.java
+C:\Users\milind.ghongade\IdeaProjects\TechSoftSolutions\src\test\java\com\techSoft\stepDefinitions\steps_web\codeCheck.java
 C:\Users\milind.ghongade\IdeaProjects\TechSoftSolutions\src\test\java\com\techSoft\stepDefinitions\steps_web\CommunityMembersSteps.java
 C:\Users\milind.ghongade\IdeaProjects\TechSoftSolutions\src\test\java\com\techSoft\testRunners\CodeCheck.java
 C:\Users\milind.ghongade\IdeaProjects\TechSoftSolutions\src\test\java\com\techSoft\testRunners\TestRunner.java

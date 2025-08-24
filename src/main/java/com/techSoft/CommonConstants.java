@@ -4,7 +4,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 import java.util.Random;
 
-public class CommonConstants {
+public final class CommonConstants {
     public static final String PLATFORM = "platform";
     public static final String COMMON = "common";
     public static final String TECHSOFT = "techSoft";
